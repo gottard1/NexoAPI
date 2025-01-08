@@ -1,8 +1,7 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from config import Config
-
-db = SQLAlchemy()
+from app.db import db
+from app.routes.auth_route import AuthRoutes
 
 def create_app():
     app = Flask(__name__)

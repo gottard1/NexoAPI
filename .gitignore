@@ -1,0 +1,43 @@
+# Arquivos gerados pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+venv/
+env/
+.venv/
+.env/
+
+# Configurações do ambiente
+*.env
+*.local
+
+# Logs
+*.log
+
+# Arquivos do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ferramentas de build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Testes e cobertura de código
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+
+# Ferramentas de IDEs
+.vscode/
+.idea/
+*.swp

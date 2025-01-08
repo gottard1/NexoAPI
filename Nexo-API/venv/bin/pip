@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/premiersoft/Documents/iOS Projects/Nexo-API/venv/bin/python3.12" "$0" "$@"
+'''exec' "/Users/premiersoft/Documents/iOS Projects/NexoAPI/Nexo-API/venv/bin/python3.13" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
