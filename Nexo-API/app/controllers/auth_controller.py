@@ -1,4 +1,3 @@
-
 from validate_docbr import CPF, CNPJ
 from flask import jsonify, current_app
 
