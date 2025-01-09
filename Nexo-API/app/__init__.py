@@ -1,11 +1,11 @@
 from flask import Flask
-from config import Config
+from config import DevelopmentConfig
 from app.db import db
 from app.routes.auth_route import AuthRoutes
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(DevelopmentConfig)
 
     db.init_app(app)
 
