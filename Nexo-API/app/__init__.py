@@ -1,7 +1,7 @@
 from flask import Flask
 from config import DevelopmentConfig
 from app.db import db
-from app.routes.auth_route import AuthRoutes
+from app.routes.auth.auth_route import AuthRoutes
 
 def create_app():
     app = Flask(__name__)
@@ -9,7 +9,6 @@ def create_app():
 
     db.init_app(app)
 
-    from app.routes.auth_route import AuthRoutes
     auth_routes = AuthRoutes()
     app.register_blueprint(auth_routes.get_blueprint(), url_prefix='/auth')
 
