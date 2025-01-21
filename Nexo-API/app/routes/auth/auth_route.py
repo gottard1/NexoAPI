@@ -1,5 +1,6 @@
-from flask import Blueprint, request, jsonify
-from app.controllers.auth_controller import AuthController
+from flask import Blueprint, request
+from app.controllers.auth.auth_controller import AuthController
+from app.models.generic_failure import GenericFailure
 
 class AuthRoutes:
     def __init__(self):
@@ -15,27 +16,31 @@ class AuthRoutes:
     def register(self):
         data = request.get_json()
         if data is None:
-            return jsonify({'message': 'Formato JSON inválido'}), 400
+            failure = GenericFailure('Formato JSON inválido')
+            return failure.to_json(), 400
 
         cpf_cnpj = data.get('cpf_cnpj')
         email = data.get('email')
         password = data.get('password')
 
         if not cpf_cnpj or not email or not password:
-            return jsonify({'message': 'CPF/CNPJ, e-mail e senha são obrigatórios'}), 400
+            failure = GenericFailure('CPF/CNPJ, e-mail e senha são obrigatórios')
+            return failure.to_json(), 400
 
         return self.auth_controller.register_user(cpf_cnpj, email, password)
 
     def login(self):
         data = request.get_json()
         if data is None:
-            return jsonify({'message': 'Formato JSON inválido'}), 400
-        
+            failure = GenericFailure('Formato JSON inválido')
+            return failure.to_json(), 400
+
         cpf_cnpj = data.get('cpf_cnpj')
         password = data.get('password')
         
         if not cpf_cnpj or not password:
-            return jsonify({'message': 'CPF/CNPJ e senha são obrigatórios'}), 400
+            failure = GenericFailure('CPF/CNPJ e senha são obrigatórios')
+            return failure.to_json(), 400
 
         return self.auth_controller.authenticate_user(cpf_cnpj, password)
 
@@ -45,11 +50,13 @@ class AuthRoutes:
     def validate_code(self):
         data = request.get_json()
         if data is None:
-            return jsonify({'message': 'Formato JSON inválido'}), 400
+            failure = GenericFailure('Formato JSON inválido')
+            return failure.to_json(), 400
 
         code = data.get('code')
         
         if not code:
-            return jsonify({'message': 'Código é obrigatório'}), 400
+            failure = GenericFailure('Código é obrigatório')
+            return failure.to_json(), 400
 
         return self.auth_controller.validate_code(code)

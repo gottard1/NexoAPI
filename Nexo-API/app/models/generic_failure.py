@@ -1,6 +1,6 @@
 from flask import jsonify
 
-class RegisterFailure:
+class GenericFailure:
     def __init__(self, message):
         self.message = message
 
