@@ -2,7 +2,7 @@ from validate_docbr import CPF, CNPJ
 from flask import current_app
 from app.models.auth.user_model import User
 from app.utils.validators import is_valid_cpf_cnpj, is_valid_email, is_valid_password
-from app.models.auth.register_response import RegisterResponse
+from app.models.auth.Register.register_response import RegisterResponse
 from app.models.generic_failure import GenericFailure
 from app import db
 import jwt
